@@ -6,10 +6,9 @@ MYSQL
 
 Bash
     
-    git clone https://github.com/netwarp/jb-test.git
-    cd jb-test
+    git clone https://github.com/netwarp/test_just_mining.git
+    cd test_just_mining
     cp .env.example .env
     vim .env # or vi or nano
     php artisan migrate
-    npm install
     php artisan serve
