@@ -30,7 +30,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+        return view('admin.products.form');
     }
 
     /**
@@ -91,7 +91,9 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        return view('admin.products.form', compact('product'));
     }
 
     /**
@@ -114,6 +116,6 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

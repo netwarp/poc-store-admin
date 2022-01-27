@@ -20,6 +20,10 @@
 
             <div>Image</div>
             <div><img src="/image/{{ $product->image }}" alt=""></div>
+
+            <div>
+                <a href="/admin/products/{{ $product->id }}">Edit</a>
+            </div>
         </div>
     @empty
         <div>

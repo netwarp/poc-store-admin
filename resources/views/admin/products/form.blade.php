@@ -22,22 +22,28 @@
 
         <div>
             <label for="title">Title</label>
-            <input type="text" name="title" value="{{ old('title') }}">
+            <input type="text" name="title" value="{{ $product->title ?? old('title') }}">
         </div>
 
         <div>
             <label for="description">Description</label>
-            <textarea name="description" cols="30" rows="10">{{ old('description') }}</textarea>
+            <textarea name="description" cols="30" rows="10">{{ $product->description ?? old('description') }}</textarea>
         </div>
 
         <div>
             <label for="image">Image</label>
             <input type="file" name="image">
+
+            @isset($product->image)
+                <div>
+                    <img src="/image/{{ $product->image }}" alt="">
+                </div>
+            @endisset
         </div>
 
         <div>
             <label for="price">Price</label>
-            <input type="text" name="price" value="{{ old('price') }}">
+            <input type="text" name="price" value="{{ $product->price ?? old('price') }}">
         </div>
 
         <div>
