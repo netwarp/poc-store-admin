@@ -4,27 +4,33 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Product;
+use Illuminate\View\View;
+
 
 class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
-        return view('');
+        $products = Product::orderBy('id', 'desc')->get();
+
+        return view('admin.products.index', compact('products'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
     public function create()
     {
-        //
+        return view('admin.products.create');
     }
 
     /**
@@ -35,7 +41,34 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required | max:255',
+            'description' => 'required',
+            'image' => 'mimes:jpg,png',
+            'price' => 'required'
+        ]);
+
+        $title = $request->get('title');
+        $description = $request->get('description');
+        $image = $request->file('image');
+        $price = $request->get('price');
+
+        $data = [
+            'title' => $title,
+            'description' => $description,
+            'price' => (float) $price
+        ];
+
+        if ($request->file('image')) {
+            $name = $image->hashName();
+            Storage::put("products", $image);
+
+            $data['image'] = $name;
+        }
+
+        Product::create($data);
+
+        return redirect('/admin/products')->with('success', 'Product successfully created');
     }
 
     /**

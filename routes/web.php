@@ -17,5 +17,7 @@ use App\Http\Controllers\Admin\ProductsController;
 
 Route::get('/', [FrontController::class, 'index']);
 
-Route::get('/products', [ProductsController::class, 'index']);
+Route::get('admin/products', [ProductsController::class, 'index']);
+Route::get('admin/products/create', [ProductsController::class, 'create']);
+Route::post('admin/products/create', [ProductsController::class, 'store']);
 
