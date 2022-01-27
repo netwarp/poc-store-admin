@@ -11,6 +11,7 @@
     <body>
         <header>
             <a href="/" id="logo">LOGO</a>
+            <a href="{{ action([\App\Http\Controllers\Admin\ProductsController::class, 'index']) }}">Go to admin panel</a>
         </header>
 
         <main>

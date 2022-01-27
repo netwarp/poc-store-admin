@@ -37,7 +37,7 @@ class ProductsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -68,8 +68,7 @@ class ProductsController extends Controller
 
         Product::create($data);
 
-        // TODO REDIRECT TO ROUTE OR CONTROLLER
-        return redirect('/admin/products')->with('success', 'Product successfully created');
+        return redirect()->action([ProductsController::class, 'index'])->with('success', 'Product successfully created');
     }
 
     /**
@@ -127,7 +126,7 @@ class ProductsController extends Controller
 
         $product->update($data);
 
-        return redirect('/admin/products')->with('success', 'Product successfully update');
+        return redirect()->action([ProductsController::class, 'index'])->with('success', 'Product successfully update');
     }
 
     /**
@@ -146,6 +145,6 @@ class ProductsController extends Controller
 
         $product->delete();
 
-        return redirect('/admin/products')->with('success', 'Product successfully deleted');
+        return redirect()->action([ProductsController::class, 'index'])->with('success', 'Product successfully deleted');
     }
 }

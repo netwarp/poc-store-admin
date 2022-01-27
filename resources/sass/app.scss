@@ -8,10 +8,15 @@ body {
 header {
     background: #237823;
     padding: 2rem;
+    display: flex;
+    justify-content: space-between;
 
-    #logo {
+    a {
         color: #fff;
         text-decoration: none;
+    }
+
+    #logo {
         font-size: 2rem;
         font-weight: bold;
     }

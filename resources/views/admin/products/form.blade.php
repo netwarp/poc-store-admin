@@ -61,12 +61,11 @@
                 WARNING
             </div>
 
-            <form action="/admin/products/1" method="POST">
+            <form action="/admin/products/{{ $product->id }}" method="POST">
                 @csrf
                 @method('delete')
                 <button type="submit" class="btn danger">Delete</button>
             </form>
         </div>
-
     @endisset
 @endsection

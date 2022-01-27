@@ -10,8 +10,8 @@
     </head>
     <body>
         <header>
-            <a href="/" id="logo">LOGO</a>
-            ADMIN
+            <a href="/admin/products" id="logo">LOGO | <small>ADMIN</small> </a>
+            <a href="/">Go to public site</a>
         </header>
 
         <main>
