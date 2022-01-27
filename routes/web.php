@@ -18,12 +18,18 @@ use App\Http\Controllers\Admin\ProductsController;
 Route::get('/', [FrontController::class, 'index']);
 Route::get('/product/{slug}/{id}', [FrontController::class, 'product']);
 
-Route::get('admin/products', [ProductsController::class, 'index']);
-Route::get('admin/products/create', [ProductsController::class, 'create']);
-Route::post('admin/products/create', [ProductsController::class, 'store']);
-Route::get('admin/products/{id}', [ProductsController::class, 'edit']);
-Route::put('admin/products/{id}', [ProductsController::class, 'update']);
-Route::delete('admin/products/{id}', [ProductsController::class, 'destroy']);
+Route::prefix('admin')->group(function() {
+
+    Route::prefix('products')->group(function() {
+        Route::get('/', [ProductsController::class, 'index']);
+        Route::get('/create', [ProductsController::class, 'create']);
+        Route::post('/create', [ProductsController::class, 'store']);
+        Route::get('/{id}', [ProductsController::class, 'edit']);
+        Route::put('/{id}', [ProductsController::class, 'update']);
+        Route::delete('/{id}', [ProductsController::class, 'destroy']);
+    });
+});
+
 
 Route::get('image/{path}', [FrontController::class, 'image']);
 
