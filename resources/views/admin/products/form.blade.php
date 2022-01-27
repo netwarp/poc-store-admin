@@ -20,17 +20,21 @@
     <form action="#" method="POST" enctype="multipart/form-data">
         @csrf
 
-        <div>
+        @isset($product)
+            @method('put')
+        @endisset
+
+        <div class="form-group">
             <label for="title">Title</label>
             <input type="text" name="title" value="{{ $product->title ?? old('title') }}">
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="description">Description</label>
             <textarea name="description" cols="30" rows="10">{{ $product->description ?? old('description') }}</textarea>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="image">Image</label>
             <input type="file" name="image">
 
@@ -41,24 +45,28 @@
             @endisset
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="price">Price</label>
             <input type="text" name="price" value="{{ $product->price ?? old('price') }}">
         </div>
 
         <div>
-            <button type="submit">Send</button>
+            <button type="submit" class="btn primary">Send</button>
         </div>
     </form>
 
     @isset($product)
-        <div>
-            WARNING
+        <div class="zone-danger">
+            <div>
+                WARNING
+            </div>
+
+            <form action="/admin/products/1" method="POST">
+                @csrf
+                @method('delete')
+                <button type="submit" class="btn danger">Delete</button>
+            </form>
         </div>
-        <form action="/admin/products/1" method="POST">
-            @csrf
-            @method('delete')
-            <button type="submit" class="btn danger">Delete</button>
-        </form>
+
     @endisset
 @endsection

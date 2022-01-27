@@ -101,18 +101,40 @@ class ProductsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        $title = $request->get('title');
+        $description = $request->get('description');
+        $image = $request->file('image');
+        $price = $request->get('price');
+
+        $data = [
+            'title' => $title,
+            'description' => $description,
+            'price' => (float) $price
+        ];
+
+        if ($request->file('image')) {
+            $name = $image->hashName();
+            Storage::put("products", $image);
+
+            $data['image'] = $name;
+        }
+
+        $product->update($data);
+
+        return redirect('/admin/products')->with('success', 'Product successfully update');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {

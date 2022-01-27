@@ -46,7 +46,8 @@ main {
     padding: 1rem;
     text-decoration: none;
     display: inline-block;
-
+    border: 0;
+    cursor: pointer;
 
     &.primary {
         background: #0967a3;
@@ -85,4 +86,24 @@ footer {
 // admin
 .product-data {
     margin-bottom: 2rem;
+}
+
+form {
+
+    .form-group {
+        margin-bottom: 2rem;
+    }
+
+    label {
+        font-weight: bold;
+        width: 100%;
+    }
+
+    input, textarea {
+        width: 100%;
+    }
+}
+
+.zone-danger {
+    margin-top: 6rem;
 }
