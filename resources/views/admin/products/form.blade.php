@@ -50,4 +50,15 @@
             <button type="submit">Send</button>
         </div>
     </form>
+
+    @isset($product)
+        <div>
+            WARNING
+        </div>
+        <form action="/admin/products/1" method="POST">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn danger">Delete</button>
+        </form>
+    @endisset
 @endsection

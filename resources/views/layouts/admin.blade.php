@@ -11,6 +11,7 @@
     <body>
         <header>
             <a href="/" id="logo">LOGO</a>
+            ADMIN
         </header>
 
         <main>

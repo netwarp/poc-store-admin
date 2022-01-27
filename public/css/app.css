@@ -43,6 +43,10 @@ main {
   background: #0967a3;
   color: #fff;
 }
+.btn.danger {
+  background: #db2c3e;
+  color: #fff;
+}
 
 .button-store {
   background: #4a5568;

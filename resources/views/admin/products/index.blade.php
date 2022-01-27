@@ -2,6 +2,12 @@
 
 @section('content')
 
+    @if(session('success'))
+        <div>
+            {{ session('success') }}
+        </div>
+    @endif
+
     <div>
         {{-- TODO redirect to name or controller --}}
         <a href="/admin/products/create" class="btn primary">Create new product</a>
@@ -38,10 +44,8 @@
                     <a href="/admin/products/{{ $product->id }}">Edit product</a>
                 </div>
             @empty
-                Not yet
+                Not product yet
             @endforelse
         </div>
     </div>
-
-
 @endsection

@@ -23,5 +23,7 @@ Route::get('admin/products/create', [ProductsController::class, 'create']);
 Route::post('admin/products/create', [ProductsController::class, 'store']);
 Route::get('admin/products/{id}', [ProductsController::class, 'edit']);
 
+Route::delete('admin/products/{id}', [ProductsController::class, 'destroy']);
+
 Route::get('image/{path}', [FrontController::class, 'image']);
 
