@@ -68,6 +68,7 @@ class ProductsController extends Controller
 
         Product::create($data);
 
+        // TODO REDIRECT TO ROUTE OR CONTROLLER
         return redirect('/admin/products')->with('success', 'Product successfully created');
     }
 

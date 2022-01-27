@@ -21,3 +21,5 @@ Route::get('admin/products', [ProductsController::class, 'index']);
 Route::get('admin/products/create', [ProductsController::class, 'create']);
 Route::post('admin/products/create', [ProductsController::class, 'store']);
 
+Route::get('image/{path}', [FrontController::class, 'image']);
+

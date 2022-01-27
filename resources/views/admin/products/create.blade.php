@@ -1,6 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
+
+    <div>
+        {{-- TODO redirect to name or controller --}}
+        <a href="/admin/products">Back to products</a>
+    </div>
+
     <h1>Create new product</h1>
     @if ($errors->any())
         <div class="alert alert-danger">
