@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Product;
 use Illuminate\View\View;
-
+use Illuminate\Support\Str;
 
 class ProductsController extends Controller
 {

@@ -4,30 +4,44 @@
 
     <div>
         {{-- TODO redirect to name or controller --}}
-        <a href="/admin/products/create">Create new product</a>
+        <a href="/admin/products/create" class="btn primary">Create new product</a>
     </div>
 
-    @forelse($products as $product)
-        <div class="product">
-            <div>Title</div>
-            <div>{{ $product->title }}</div>
+    <div class="card">
+        <div class="card-content">
+            @forelse($products as $product)
+                <div class="product-data">
+                    <div class="key">Title</div>
+                    <div class="value">{{ $product->title }}</div>
+                </div>
 
-            <div>Description</div>
-            <div>{{ $product->description }}</div>
+                <div class="product-data">
+                    <div class="key">Description</div>
+                    <div class="value">{{ $product->description }}</div>
+                </div>
 
-            <div>Price</div>
-            <div>{{ $product->price  }}</div>
+                <div class="product-data">
+                    <div class="key">Image</div>
+                    @isset($product->image)
+                        <div class="value">
+                            <img src="/image/{{ $product->image }}" alt="image">
+                        </div>
+                    @endisset
+                </div>
 
-            <div>Image</div>
-            <div><img src="/image/{{ $product->image }}" alt=""></div>
+                <div class="product-data">
+                    <div class="key">Price</div>
+                    <div class="value">{{ $product->price }}</div>
+                </div>
 
-            <div>
-                <a href="/admin/products/{{ $product->id }}">Edit</a>
-            </div>
+                <div class="product-data">
+                    <a href="/admin/products/{{ $product->id }}">Edit product</a>
+                </div>
+            @empty
+                Not yet
+            @endforelse
         </div>
-    @empty
-        <div>
-            Not product yet.
-        </div>
-    @endforelse
+    </div>
+
+
 @endsection

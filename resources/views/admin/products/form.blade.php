@@ -4,7 +4,7 @@
 
     <div>
         {{-- TODO redirect to name or controller --}}
-        <a href="/admin/products">Back to products</a>
+        <a href="/admin/products" class="btn primary">Back to products</a>
     </div>
 
     <h1>Create new product</h1>

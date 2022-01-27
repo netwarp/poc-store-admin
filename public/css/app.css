@@ -1,0 +1,71 @@
+body {
+  font-family: Arial;
+  margin: 0;
+  padding: 0;
+  background: #d3dbfd;
+}
+
+header {
+  background: #237823;
+  padding: 2rem;
+}
+header #logo {
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+main {
+  min-height: 70vh;
+  padding: 2rem;
+}
+
+.card {
+  background: #fff;
+}
+.card .card-image {
+  max-width: 100%;
+}
+.card .card-content {
+  padding: 2rem;
+}
+.card .card-content .card-title {
+  font-size: 1.6rem;
+}
+
+.btn {
+  padding: 1rem;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn.primary {
+  background: #0967a3;
+  color: #fff;
+}
+
+.button-store {
+  background: #4a5568;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  margin: 2rem;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+table td {
+  border: 1px solid #000;
+}
+
+footer {
+  background: #2b2b2b;
+  color: #fff;
+  padding: 2rem;
+}
+
+.product-data {
+  margin-bottom: 2rem;
+}

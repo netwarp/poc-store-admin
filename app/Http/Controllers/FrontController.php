@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Product;
 
 class FrontController extends Controller
 {
@@ -12,7 +13,16 @@ class FrontController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $products = Product::orderBy('id', 'desc')->get();
+
+        return view('index', compact('products'));
+    }
+
+    public function product($slug, $id)
+    {
+        $product = Product::findOrFail($id);
+
+        return view('product', compact('product'));
     }
 
     public function image($path)

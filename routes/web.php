@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\ProductsController;
 */
 
 Route::get('/', [FrontController::class, 'index']);
+Route::get('/product/{slug}/{id}', [FrontController::class, 'product']);
 
 Route::get('admin/products', [ProductsController::class, 'index']);
 Route::get('admin/products/create', [ProductsController::class, 'create']);
