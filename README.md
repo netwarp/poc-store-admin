@@ -1,13 +1,13 @@
-# Test Just Mining
+# POC Store admin
 
 MYSQL
 
-    CREATE DATABASE jb_test
+    CREATE DATABASE store_admin
 
 Bash
     
-    git clone https://github.com/netwarp/test_just_mining.git
-    cd test_just_mining
+    git clone https://github.com/netwarp/poc-store-admin.git
+    cd poc-store-admin
     cp .env.example .env
     vim .env # or vi or nano
     php artisan migrate
